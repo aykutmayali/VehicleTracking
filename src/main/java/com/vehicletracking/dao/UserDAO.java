@@ -6,11 +6,10 @@
 package com.vehicletracking.dao;
 
 import com.vehicletracking.domain.User;
-import java.util.List;
 
 /**
  *
- * @author Elidor
+ * @author burakzengin
  */
 public interface UserDAO {
 
@@ -18,5 +17,5 @@ public interface UserDAO {
 
     public void delete(User u);
 
-    public List<User> findByProperty(String propName, Object propValue);
+    public User findByProperty(String propName, Object propValue);
 }

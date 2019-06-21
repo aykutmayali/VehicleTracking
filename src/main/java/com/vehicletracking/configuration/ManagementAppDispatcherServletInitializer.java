@@ -11,7 +11,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 
 /**
  *
- * @author Elidor
+ * @author burakzengin
  */
 public class ManagementAppDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
@@ -32,7 +32,7 @@ public class ManagementAppDispatcherServletInitializer extends AbstractAnnotatio
 
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
-        super.onStartup(servletContext); //To change body of generated methods, choose Tools | Templates.
+        super.onStartup(servletContext);
     }
 
 }

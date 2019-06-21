@@ -13,7 +13,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 /**
  *
- * @author Elidor
+ * @author burakzengin
  */
 public class HibernateUtil {
 

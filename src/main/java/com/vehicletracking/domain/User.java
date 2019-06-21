@@ -6,6 +6,7 @@
 package com.vehicletracking.domain;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,10 +17,10 @@ import javax.persistence.UniqueConstraint;
 
 /**
  *
- * @author Elidor
+ * @author burakzengin
  */
 @Entity
-@Table(name = "login", uniqueConstraints = {
+@Table(name = "user", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"id"})})
 public class User implements Serializable {
 
@@ -28,14 +29,14 @@ public class User implements Serializable {
     @Column(name = "id", unique = true, nullable = false, length = 11)
     private int id;
 
-    @Column(name = "username", nullable = false, length = 45)
+    @Column(name = "username", nullable = false, length = 16)
     private String username;
 
-    @Column(name = "password", nullable = false, length = 45)
+    @Column(name = "password", nullable = false, length = 32)
     private String password;
 
-    @Column(name = "roles", nullable = false, length = 45)
-    private String roles;
+    @Column(name = "create_time")
+    private Timestamp create_time;
 
     public int getId() {
         return id;
@@ -43,14 +44,6 @@ public class User implements Serializable {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getRoles() {
-        return roles;
-    }
-
-    public void setRoles(String roles) {
-        this.roles = roles;
     }
 
     public String getUsername() {
@@ -67,6 +60,14 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Timestamp getCreate_time() {
+        return create_time;
+    }
+
+    public void setCreate_time(Timestamp create_time) {
+        this.create_time = create_time;
     }
 
 }

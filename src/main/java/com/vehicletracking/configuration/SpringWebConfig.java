@@ -17,7 +17,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 /**
  *
- * @author Elidor
+ * @author burakzengin
  */
 @Configuration
 @ComponentScan(basePackages = {"com.vehicletracking"})

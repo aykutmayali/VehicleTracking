@@ -7,7 +7,6 @@ package com.vehicletracking.dao;
 
 import com.vehicletracking.domain.User;
 import com.vehicletracking.util.HibernateUtil;
-import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -20,7 +19,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author Elidor
+ * @author burakzengin
  */
 @Repository("UserDAO")
 public class UserDAOImpl implements UserDAO {
@@ -54,9 +53,9 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public List<User> findByProperty(String propName, Object propValue) {
+    public User findByProperty(String propName, Object propValue) {
 
-        List<User> userList = null;
+        User user = null;
         Transaction transaction = null;
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
@@ -67,14 +66,14 @@ public class UserDAOImpl implements UserDAO {
             Root<User> root = query.from(User.class);
             query.select(root).where(builder.equal(root.get(propName), propValue));
             Query<User> q = session.createQuery(query);
-            userList = q.getResultList();
+            user = q.getSingleResult();
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
             }
         }
-        return userList;
+        return user;
     }
 
 }
